@@ -1,0 +1,21 @@
+{
+	"name": "presentation",
+	"version": "0.0.1",
+	"scripts": {
+		"build": "npm run build_test",
+		"build_test": "tsc --module commonjs --target es6 --jsx react src/MainTest.ts --outDir bin && browserify bin/MainTest.js -o test.js",
+		"build_ctrl": "tsc --module commonjs --target es6 --jsx react src/MainCtrl.ts --outDir bin && browserify bin/MainCtrl.js -o index.js",
+		"build_view": "tsc --module commonjs --target es6 --jsx react src/MainView.ts --outDir bin && browserify bin/MainView.js -o viewer.js",
+		"serve": "echo localhost:8000 ; python -m SimpleHTTPServer"
+	},
+	"dependencies": {
+		"typescript": "3.3.3",
+		"react": "16.8.1",
+		"react-dom": "16.8.1"
+	},
+	"devDependencies": {
+		"@types/react": "16.8.2",
+		"@types/react-dom": "16.8.0",
+		"browserify": "16.2.3"
+	}
+}
