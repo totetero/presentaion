@@ -1,0 +1,157 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<title>test01</title>
+		<style type="text/css"></style>
+	</head>
+	<body>
+		<div id="root">
+			<button id="buttonCheck">check</button>
+			<button id="buttonConnect">connect</button>
+			<button id="buttonState">state</button>
+			<button id="buttonClose">close</button>
+			<button id="buttonTerminate">terminate</button>
+			<button id="buttonPrev">prev</button>
+			<button id="buttonNext">next</button>
+			<a id="aDirect">direct</a>
+		</div>
+		<script type="text/javascript">
+(function(global){
+	"use strict";
+
+	// ウェブページを2画面対応にするPresentation APIを使ってみる
+	// https://qiita.com/tomoyukilabs/items/f7b5971cf107d769bd39
+
+	// ----------------------------------------------------------------
+	// ----------------------------------------------------------------
+	// ----------------------------------------------------------------
+
+	const viewer = "viewer.html";
+	const request = new PresentationRequest(viewer);
+	const storageKey = "presentation_api_test01";
+
+	const localGlobal = {};
+	localGlobal.connection = null;
+	document.getElementById("buttonCheck").disabled = false;
+	document.getElementById("buttonConnect").disabled = false;
+	document.getElementById("buttonState").disabled = false;
+	document.getElementById("buttonClose").disabled = true;
+	document.getElementById("buttonTerminate").disabled = true;
+	document.getElementById("buttonPrev").disabled = true;
+	document.getElementById("buttonNext").disabled = true;
+	document.getElementById("aDirect").href = viewer;
+
+	// 確認
+	document.getElementById("buttonCheck").addEventListener("click", () => {
+		if(localGlobal.connection !== null){return;}
+		request.getAvailability().then(availability => {
+			console.log("start", availability);
+			availability.addEventListener("change", () => {
+				console.log("change", availability);
+			});
+		});
+	});
+
+	// 接続
+	document.getElementById("buttonConnect").addEventListener("click", () => {
+		if(localGlobal.connection !== null){return;}
+		Promise.resolve().then(() => {
+			// 再接続もしくは接続を行う
+			const presentationId = window.localStorage.getItem(storageKey);
+			localStorage.removeItem(storageKey);
+			return (presentationId ? request.reconnect(presentationId) : request.start()).then(connection => {
+				localGlobal.connection = connection;
+				document.getElementById("buttonCheck").disabled = true;
+				document.getElementById("buttonConnect").disabled = true;
+				document.getElementById("buttonState").disabled = false;
+				document.getElementById("buttonClose").disabled = false;
+				document.getElementById("buttonTerminate").disabled = false;
+				document.getElementById("buttonPrev").disabled = false;
+				document.getElementById("buttonNext").disabled = false;
+			}).catch(error => {
+				throw error;
+			});
+		}).then(() => {
+			// 接続待ち
+			localGlobal.connection.addEventListener("connect", () => {
+				console.log("接続完了");
+			});
+			// データ受信待ち
+			localGlobal.connection.addEventListener("message", event => {
+				console.log("データ受信処理", event);
+			});
+		}).catch(error => {
+			console.log("error", error);
+		});
+	});
+
+	// 状態
+	document.getElementById("buttonState").addEventListener("click", () => {
+		if(localGlobal.connection === null){
+			console.log("none");
+		}else{
+			console.log(localGlobal.connection.state);
+		}
+	});
+
+	// 切断
+	document.getElementById("buttonClose").addEventListener("click", () => {
+		if(localGlobal.connection === null){return;}
+		window.localStorage.setItem(storageKey, localGlobal.connection.id);
+		localGlobal.connection.close();
+		localGlobal.connection = null;
+		document.getElementById("buttonCheck").disabled = false;
+		document.getElementById("buttonConnect").disabled = false;
+		document.getElementById("buttonState").disabled = false;
+		document.getElementById("buttonClose").disabled = true;
+		document.getElementById("buttonTerminate").disabled = true;
+		document.getElementById("buttonPrev").disabled = true;
+		document.getElementById("buttonNext").disabled = true;
+	});
+
+	// 停止
+	document.getElementById("buttonTerminate").addEventListener("click", () => {
+		if(localGlobal.connection === null){return;}
+		Promise.resolve().then(() => {
+			// 切断していたら停止するために接続し直す必要がある
+			if(localGlobal.connection.state === "closed"){
+				return new Promise(resolve => {
+					localGlobal.connection.addEventListener("connect", resolve);
+					localGlobal.connection.reconnect(localGlobal.connection.id);
+				});
+			}
+			return Promise.resolve();
+		}).then(() => {
+			localGlobal.connection.terminate();
+			localGlobal.connection = null;
+			document.getElementById("buttonCheck").disabled = false;
+			document.getElementById("buttonConnect").disabled = false;
+			document.getElementById("buttonState").disabled = false;
+			document.getElementById("buttonClose").disabled = true;
+			document.getElementById("buttonTerminate").disabled = true;
+			document.getElementById("buttonPrev").disabled = true;
+			document.getElementById("buttonNext").disabled = true;
+		});
+	});
+
+	// 戻る
+	document.getElementById("buttonPrev").addEventListener("click", () => {
+		if(localGlobal.connection === null){return;}
+		localGlobal.connection.send("prev");
+	});
+
+	// 進む
+	document.getElementById("buttonNext").addEventListener("click", () => {
+		if(localGlobal.connection === null){return;}
+		localGlobal.connection.send("next");
+	});
+
+	// ----------------------------------------------------------------
+	// ----------------------------------------------------------------
+	// ----------------------------------------------------------------
+})(this);
+		</script>
+	</body>
+</html>
+
