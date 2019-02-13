@@ -3,10 +3,10 @@
 	"version": "0.0.1",
 	"scripts": {
 		"build": "npm run build_test",
-		"build_test": "tsc --module commonjs --target es6 --jsx react src/MainTest.ts --outDir bin && browserify bin/MainTest.js -o test.js",
-		"build_ctrl": "tsc --module commonjs --target es6 --jsx react src/MainCtrl.ts --outDir bin && browserify bin/MainCtrl.js -o index.js",
-		"build_view": "tsc --module commonjs --target es6 --jsx react src/MainView.ts --outDir bin && browserify bin/MainView.js -o viewer.js",
-		"serve": "echo localhost:8000 ; python -m SimpleHTTPServer"
+		"build_test": "tsc --module commonjs --target es6 --jsx react src/MainTest.ts --outDir out && browserify out/MainTest.js -o public/test.js",
+		"build_ctrl": "tsc --module commonjs --target es6 --jsx react src/MainCtrl.ts --outDir out && browserify out/MainCtrl.js -o public/index.js",
+		"build_view": "tsc --module commonjs --target es6 --jsx react src/MainView.ts --outDir out && browserify out/MainView.js -o public/viewer.js",
+		"serve": "echo localhost:8000 ; cd public ; python -m SimpleHTTPServer"
 	},
 	"dependencies": {
 		"typescript": "3.3.3",
