@@ -6,21 +6,21 @@
 import * as React from "react";
 
 // 情報構造体
-interface ComponentTestProps extends React.Props<any>{
+interface ComponentViewPage03Props extends React.Props<any>{
 }
 
 // 状態構造体
-interface ComponentTestState{
+interface ComponentViewPage03State{
 }
 
 // コンポーネント
-export default class ComponentTest extends React.Component<ComponentTestProps, ComponentTestState>{
+export default class ComponentViewPage03 extends React.Component<ComponentViewPage03Props, ComponentViewPage03State>{
 	// プロパティ初期値
-	static defaultProps: ComponentTestProps = {
+	static defaultProps: ComponentViewPage03Props = {
 	};
 
 	// コンストラクタ
-	constructor(props: ComponentTestProps){
+	constructor(props: ComponentViewPage03Props){
 		super(props);
 		// 状態設定
 		this.state = {
@@ -30,7 +30,16 @@ export default class ComponentTest extends React.Component<ComponentTestProps, C
 	// レンダー
 	public render(): JSX.Element{
 		return(
-			<div>test</div>
+			<div style={{
+				display: "flex",
+				justifyContent: "center",
+				alignItems: "center",
+				position: "absolute",
+				left: "0",
+				right: "0",
+				top: "0",
+				bottom: "0",
+			}}>page03</div>
 		);
 	}
 }

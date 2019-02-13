@@ -5,12 +5,12 @@
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import ComponentTest from "./ComponentTest";
+import ComponentViewRoot from "./ComponentViewRoot";
 
 
 // 処理はここから始まる
 document.addEventListener("DOMContentLoaded", e => {
-	ReactDOM.render(React.createElement(ComponentTest), document.getElementById("app"));
+	ReactDOM.render(React.createElement(ComponentViewRoot), document.getElementById("app"));
 });
 
 // ----------------------------------------------------------------

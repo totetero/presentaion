@@ -6,21 +6,21 @@
 import * as React from "react";
 
 // 情報構造体
-interface ComponentTestProps extends React.Props<any>{
+interface ComponentCtrlRootProps extends React.Props<any>{
 }
 
 // 状態構造体
-interface ComponentTestState{
+interface ComponentCtrlRootState{
 }
 
 // コンポーネント
-export default class ComponentTest extends React.Component<ComponentTestProps, ComponentTestState>{
+export default class ComponentCtrlRoot extends React.Component<ComponentCtrlRootProps, ComponentCtrlRootState>{
 	// プロパティ初期値
-	static defaultProps: ComponentTestProps = {
+	static defaultProps: ComponentCtrlRootProps = {
 	};
 
 	// コンストラクタ
-	constructor(props: ComponentTestProps){
+	constructor(props: ComponentCtrlRootProps){
 		super(props);
 		// 状態設定
 		this.state = {

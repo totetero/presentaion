@@ -24567,13 +24567,50 @@ if (process.env.NODE_ENV === 'production') {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 // コンポーネント
-class ComponentTest extends React.Component {
+class ComponentViewPage01 extends React.Component {
+    // コンストラクタ
+    constructor(props) {
+        super(props);
+        // 状態設定
+        this.state = {};
+    }
     // レンダー
     render() {
-        return (React.createElement("div", null, "test"));
+        return (React.createElement("div", { style: {
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "absolute",
+                left: "0",
+                right: "0",
+                top: "0",
+                bottom: "0",
+            } },
+            React.createElement("div", { style: {
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "100%",
+                    height: "100%",
+                } },
+                React.createElement("div", { style: {
+                        flexGrow: 4,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        fontSize: "xx-large",
+                    } }, "\u30D7\u30EC\u30BC\u30F3\u30C6\u30FC\u30B7\u30E7\u30F3\u30BF\u30A4\u30C8\u30EB"),
+                React.createElement("div", { style: {
+                        flexGrow: 1,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        fontSize: "medium",
+                    } }, "\u307D\u308D\u3086\u304D"))));
     }
 }
-exports.default = ComponentTest;
+// プロパティ初期値
+ComponentViewPage01.defaultProps = {};
+exports.default = ComponentViewPage01;
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
@@ -24585,14 +24622,162 @@ exports.default = ComponentTest;
 // ----------------------------------------------------------------
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
+// コンポーネント
+class ComponentViewPage02 extends React.Component {
+    // コンストラクタ
+    constructor(props) {
+        super(props);
+        // 状態設定
+        this.state = {};
+    }
+    // レンダー
+    render() {
+        return (React.createElement("div", { style: {
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "absolute",
+                left: "0",
+                right: "0",
+                top: "0",
+                bottom: "0",
+            } }, "page02"));
+    }
+}
+// プロパティ初期値
+ComponentViewPage02.defaultProps = {};
+exports.default = ComponentViewPage02;
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+
+},{"react":10}],19:[function(require,module,exports){
+"use strict";
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = require("react");
+// コンポーネント
+class ComponentViewPage03 extends React.Component {
+    // コンストラクタ
+    constructor(props) {
+        super(props);
+        // 状態設定
+        this.state = {};
+    }
+    // レンダー
+    render() {
+        return (React.createElement("div", { style: {
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "absolute",
+                left: "0",
+                right: "0",
+                top: "0",
+                bottom: "0",
+            } }, "page03"));
+    }
+}
+// プロパティ初期値
+ComponentViewPage03.defaultProps = {};
+exports.default = ComponentViewPage03;
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+
+},{"react":10}],20:[function(require,module,exports){
+"use strict";
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = require("react");
+const ComponentViewPage01_1 = require("./ComponentViewPage01");
+const ComponentViewPage02_1 = require("./ComponentViewPage02");
+const ComponentViewPage03_1 = require("./ComponentViewPage03");
+// コンポーネント
+class ComponentViewRoot extends React.Component {
+    // コンストラクタ
+    constructor(props) {
+        super(props);
+        // 状態設定
+        this.state = {
+            page: 0,
+        };
+    }
+    // 戻るボタン
+    onPrev() {
+        if (this.state.page - 1 < 0) {
+            return;
+        }
+        this.setState({ page: this.state.page - 1, });
+    }
+    // 進むボタン
+    onNext() {
+        if (this.state.page + 1 >= this.props.pages.length) {
+            return;
+        }
+        this.setState({ page: this.state.page + 1, });
+    }
+    // レンダー
+    render() {
+        return (React.createElement("div", { style: {
+                display: "flex",
+                flexDirection: "column",
+                position: "absolute",
+                left: "0",
+                right: "0",
+                top: "0",
+                bottom: "0",
+            } },
+            React.createElement("div", { style: {
+                    flexGrow: 1,
+                    position: "relative",
+                } }, this.props.pages[this.state.page]),
+            React.createElement("div", { style: {
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "40px",
+                } },
+                React.createElement("button", { onClick: this.onPrev.bind(this) }, "prev"),
+                React.createElement("div", { style: { width: "80px", textAlign: "center", } },
+                    this.state.page + 1,
+                    "/",
+                    this.props.pages.length),
+                React.createElement("button", { onClick: this.onNext.bind(this) }, "next"))));
+    }
+}
+// プロパティ初期値
+ComponentViewRoot.defaultProps = {
+    pages: [
+        React.createElement(ComponentViewPage01_1.default, null),
+        React.createElement(ComponentViewPage02_1.default, null),
+        React.createElement(ComponentViewPage03_1.default, null),
+    ],
+};
+exports.default = ComponentViewRoot;
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+
+},{"./ComponentViewPage01":17,"./ComponentViewPage02":18,"./ComponentViewPage03":19,"react":10}],21:[function(require,module,exports){
+"use strict";
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = require("react");
 const ReactDOM = require("react-dom");
-const ComponentTest_1 = require("./ComponentTest");
+const ComponentViewRoot_1 = require("./ComponentViewRoot");
 // 処理はここから始まる
 document.addEventListener("DOMContentLoaded", e => {
-    ReactDOM.render(React.createElement(ComponentTest_1.default), document.getElementById("app"));
+    ReactDOM.render(React.createElement(ComponentViewRoot_1.default), document.getElementById("app"));
 });
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 
-},{"./ComponentTest":17,"react":10,"react-dom":7}]},{},[18]);
+},{"./ComponentViewRoot":20,"react":10,"react-dom":7}]},{},[21]);
