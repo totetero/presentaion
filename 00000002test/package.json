@@ -6,7 +6,7 @@
 		"build_test": "tsc --module commonjs --target es6 --jsx react src/MainTest.ts --outDir out && browserify out/MainTest.js -o public/test.js",
 		"build_ctrl": "tsc --module commonjs --target es6 --jsx react src/MainCtrl.ts --outDir out && browserify out/MainCtrl.js -o public/index.js",
 		"build_view": "tsc --module commonjs --target es6 --jsx react src/MainView.ts --outDir out && browserify out/MainView.js -o public/viewer.js",
-		"serve": "echo localhost:8000 ; cd public ; python -m SimpleHTTPServer"
+		"serve": "cd public ; http-server"
 	},
 	"dependencies": {
 		"typescript": "3.3.3",
@@ -16,6 +16,7 @@
 	"devDependencies": {
 		"@types/react": "16.8.2",
 		"@types/react-dom": "16.8.0",
-		"browserify": "16.2.3"
+		"browserify": "16.2.3",
+		"http-server": "0.11.1"
 	}
 }
