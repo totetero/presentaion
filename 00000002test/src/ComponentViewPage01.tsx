@@ -32,36 +32,25 @@ export default class ComponentViewPage01 extends React.Component<ComponentViewPa
 		return(
 			<div style={{
 				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
-				position: "absolute",
-				left: "0",
-				right: "0",
-				top: "0",
-				bottom: "0",
+				flexDirection: "column",
+				width: "100%",
+				height: "100%",
 			}}>
 				<div style={{
+					flexGrow: 4,
 					display: "flex",
-					flexDirection: "column",
-					width: "100%",
-					height: "100%",
-				}}>
-					<div style={{
-						flexGrow: 4,
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-						fontSize: "xx-large",
-					}}>プレゼンテーションタイトル</div>
+					justifyContent: "center",
+					alignItems: "center",
+					fontSize: "xx-large",
+				}}>プレゼンテーションタイトル</div>
 
-					<div style={{
-						flexGrow: 1,
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-						fontSize: "medium",
-					}}>ぽろゆき</div>
-				</div>
+				<div style={{
+					flexGrow: 1,
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					fontSize: "medium",
+				}}>ぽろゆき</div>
 			</div>
 		);
 	}

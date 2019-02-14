@@ -34,11 +34,8 @@ export default class ComponentViewPage02 extends React.Component<ComponentViewPa
 				display: "flex",
 				justifyContent: "center",
 				alignItems: "center",
-				position: "absolute",
-				left: "0",
-				right: "0",
-				top: "0",
-				bottom: "0",
+				width: "100%",
+				height: "100%",
 			}}>page02</div>
 		);
 	}

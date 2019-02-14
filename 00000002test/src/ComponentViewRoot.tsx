@@ -65,7 +65,13 @@ export default class ComponentViewRoot extends React.Component<ComponentViewRoot
 				<div style={{
 					flexGrow: 1,
 					position: "relative",
-				}}>{this.props.pages[this.state.page]}</div>
+				}}><div style={{
+					position: "absolute",
+					left: "0",
+					right: "0",
+					top: "0",
+					bottom: "0",
+				}}>{this.props.pages[this.state.page]}</div></div>
 
 				<div style={{
 					display: "flex",
