@@ -44,7 +44,7 @@
 
 	const logger = (msg, obj) => {
 		console.log(msg, obj);
-		document.getElementById("stat").innerHTML = `${msg}<br>${document.getElementById("stat").innerHTML}`;
+		document.getElementById("stat").innerHTML = `${msg} ${obj && obj.toString()}<br>${document.getElementById("stat").innerHTML}`;
 	};
 
 	if(request){
