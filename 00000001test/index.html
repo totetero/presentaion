@@ -16,6 +16,7 @@
 			<button id="buttonPrev">prev</button>
 			<button id="buttonNext">next</button>
 			<a id="aDirect">direct</a>
+			<div id="stat"></div>
 		</div>
 		<script type="text/javascript">
 (function(global){
@@ -41,6 +42,11 @@
 		}
 	})();
 
+	const logger = (msg, obj) => {
+		console.log(msg, obj);
+		document.getElementById("stat").innerHTML = `${msg}<br>${document.getElementById("stat").innerHTML}`;
+	};
+
 	if(request){
 		const localGlobal = {};
 		localGlobal.connection = null;
@@ -57,9 +63,9 @@
 		document.getElementById("buttonCheck").addEventListener("click", () => {
 			if(localGlobal.connection !== null){return;}
 			request.getAvailability().then(availability => {
-				console.log("start", availability);
+				logger("start", availability);
 				availability.addEventListener("change", () => {
-					console.log("change", availability);
+					logger("change", availability);
 				});
 			});
 		});
@@ -86,23 +92,23 @@
 			}).then(() => {
 				// 接続待ち
 				localGlobal.connection.addEventListener("connect", () => {
-					console.log("接続完了");
+					logger("接続完了", null);
 				});
 				// データ受信待ち
 				localGlobal.connection.addEventListener("message", event => {
-					console.log("データ受信処理", event);
+					logger("データ受信処理", event);
 				});
 			}).catch(error => {
-				console.log("error", error);
+				logger("error", error);
 			});
 		});
 
 		// 状態
 		document.getElementById("buttonState").addEventListener("click", () => {
 			if(localGlobal.connection === null){
-				console.log("none");
+				logger("none", null);
 			}else{
-				console.log(localGlobal.connection.state);
+				logger(localGlobal.connection.state, null);
 			}
 		});
 
