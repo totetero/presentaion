@@ -2,10 +2,7 @@
 	"name": "presentation",
 	"version": "0.0.1",
 	"scripts": {
-		"build": "npm run build_view",
-		"build_test": "tsc --module commonjs --target es6 --jsx react src/MainTest.ts --outDir out && browserify out/MainTest.js -o public/test.js",
-		"build_ctrl": "tsc --module commonjs --target es6 --jsx react src/MainCtrl.ts --outDir out && browserify out/MainCtrl.js -o public/index.js",
-		"build_view": "tsc --module commonjs --target es6 --jsx react src/MainView.ts --outDir out && browserify out/MainView.js -o public/viewer.js",
+		"build": "tsc --module commonjs --target es6 --jsx react src/MainView.ts --outDir out && browserify out/MainView.js -o public/viewer.js",
 		"serve": "cd public ; http-server"
 	},
 	"dependencies": {
