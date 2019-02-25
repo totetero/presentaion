@@ -32,11 +32,40 @@ export default class ComponentViewPage02 extends React.Component<ComponentViewPa
 		return(
 			<div style={{
 				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
+				flexDirection: "column",
 				width: "100%",
 				height: "100%",
-			}}>page02</div>
+			}}>
+				<div style={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					height: "50px",
+				}}>
+					やりたいこと
+				</div>
+				<div style={{
+					flexGrow: 1,
+					display: "flex",
+				}}>
+					<div style={{
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						width: "50%",
+					}}>
+						あいうえお
+					</div>
+					<div style={{
+						flexGrow: 1,
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}>
+						かきくけこ
+					</div>
+				</div>
+			</div>
 		);
 	}
 }

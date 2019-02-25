@@ -42,7 +42,7 @@ export default class ComponentViewPage01 extends React.Component<ComponentViewPa
 					justifyContent: "center",
 					alignItems: "center",
 					fontSize: "xx-large",
-				}}>プレゼンテーションタイトル</div>
+				}}>Vue.jsとかの速度比較</div>
 
 				<div style={{
 					flexGrow: 1,
@@ -50,7 +50,7 @@ export default class ComponentViewPage01 extends React.Component<ComponentViewPa
 					justifyContent: "center",
 					alignItems: "center",
 					fontSize: "medium",
-				}}>ぽろゆき</div>
+				}}>勉三さん(親しみがこめられたアダ名)</div>
 			</div>
 		);
 	}
