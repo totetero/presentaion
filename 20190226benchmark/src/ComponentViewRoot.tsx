@@ -9,7 +9,6 @@ import ComponentViewPage02 from "./ComponentViewPage02";
 import ComponentViewPage03 from "./ComponentViewPage03";
 import ComponentViewPage04 from "./ComponentViewPage04";
 import ComponentViewPage05 from "./ComponentViewPage05";
-import ComponentViewPage06 from "./ComponentViewPage06";
 
 // 情報構造体
 interface ComponentViewRootProps extends React.Props<any>{
@@ -31,7 +30,6 @@ export default class ComponentViewRoot extends React.Component<ComponentViewRoot
 			<ComponentViewPage03 />,
 			<ComponentViewPage04 />,
 			<ComponentViewPage05 />,
-			<ComponentViewPage06 />,
 		],
 	};
 
