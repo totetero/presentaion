@@ -47,10 +47,14 @@ export default class ComponentViewPage01 extends React.Component<ComponentViewPa
 				<div style={{
 					flexGrow: 1,
 					display: "flex",
+					flexDirection: "column",
 					justifyContent: "center",
 					alignItems: "center",
 					fontSize: "medium",
-				}}>勉三さん(親しみがこめられたアダ名)</div>
+				}}>
+					<div>勉三さん</div>
+					<div>(親しみがこめられたアダ名)</div>
+				</div>
 			</div>
 		);
 	}

@@ -32,11 +32,40 @@ export default class ComponentViewPage05 extends React.Component<ComponentViewPa
 		return(
 			<div style={{
 				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
+				flexDirection: "column",
 				width: "100%",
 				height: "100%",
-			}}>Page05</div>
+			}}>
+				<div style={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					height: "50px",
+				}}>
+					結果
+				</div>
+				<div style={{
+					flexGrow: 1,
+					display: "flex",
+				}}>
+					<div style={{
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						width: "50%",
+					}}>
+						えおあいう
+					</div>
+					<div style={{
+						flexGrow: 1,
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}>
+						けこかきく
+					</div>
+				</div>
+			</div>
 		);
 	}
 }
