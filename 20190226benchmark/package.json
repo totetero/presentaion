@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"build": "tsc --module commonjs --target es6 --jsx react src/MainView.ts --outDir out && browserify out/MainView.js -o public/viewer.js",
-		"serve": "cd public ; http-server"
+		"serve": "cd public ; http-server -c-1"
 	},
 	"dependencies": {
 		"typescript": "3.3.3",
