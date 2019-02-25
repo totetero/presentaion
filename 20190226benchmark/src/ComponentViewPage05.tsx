@@ -42,28 +42,16 @@ export default class ComponentViewPage05 extends React.Component<ComponentViewPa
 					alignItems: "center",
 					height: "50px",
 				}}>
-					結果
+					結論
 				</div>
 				<div style={{
 					flexGrow: 1,
 					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
 				}}>
-					<div style={{
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-						width: "50%",
-					}}>
-						えおあいう
-					</div>
-					<div style={{
-						flexGrow: 1,
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-					}}>
-						けこかきく
-					</div>
+					vue.jsはフレームワークの中ではなかなか軽い<br />
+					速度的な観点ではとても素晴らしいフレームワークである<br />
 				</div>
 			</div>
 		);

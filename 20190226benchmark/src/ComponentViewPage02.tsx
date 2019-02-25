@@ -54,7 +54,7 @@ export default class ComponentViewPage02 extends React.Component<ComponentViewPa
 						alignItems: "center",
 						width: "50%",
 					}}>
-						あいうえお
+						様々なフレームワークの<br />速度を比較してみると楽しそう。
 					</div>
 					<div style={{
 						flexGrow: 1,
@@ -62,7 +62,12 @@ export default class ComponentViewPage02 extends React.Component<ComponentViewPa
 						justifyContent: "center",
 						alignItems: "center",
 					}}>
-						かきくけこ
+						<ul>
+							<li>vue.js</li>
+							<li>react.js</li>
+							<li>riot.js</li>
+							<li>vanilla.JS</li>
+						</ul>
 					</div>
 				</div>
 			</div>

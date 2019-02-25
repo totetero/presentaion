@@ -42,7 +42,7 @@ export default class ComponentViewPage03 extends React.Component<ComponentViewPa
 					alignItems: "center",
 					height: "50px",
 				}}>
-					やりかた 1/2
+					やりかた
 				</div>
 				<div style={{
 					flexGrow: 1,
@@ -54,15 +54,29 @@ export default class ComponentViewPage03 extends React.Component<ComponentViewPa
 						alignItems: "center",
 						width: "50%",
 					}}>
-						いうえおあ
+						SVGで多数の円を描画し、<br />
+						ループ性能を計測してみる。<br />
+						<br />
+						vue.jsの場合は右コードのような雰囲気<br />
+						partsListに1000個程度の要素を用意する<br />
 					</div>
 					<div style={{
 						flexGrow: 1,
 						display: "flex",
+						flexDirection: "column",
 						justifyContent: "center",
-						alignItems: "center",
+						alignItems: "flex-start",
 					}}>
-						きくけこか
+						&lt;svg :width="w" :height="h"&gt;<br />
+						&emsp;&emsp;&lt;circle<br />
+						&emsp;&emsp;&emsp;&emsp;v-for="parts in partsList"<br />
+						&emsp;&emsp;&emsp;&emsp;:key="parts.k"<br />
+						&emsp;&emsp;&emsp;&emsp;:cx="parts.x"<br />
+						&emsp;&emsp;&emsp;&emsp;:cy="parts.y"<br />
+						&emsp;&emsp;&emsp;&emsp;:r="parts.r"<br />
+						&emsp;&emsp;&emsp;&emsp;:fill="parts.c"<br />
+						&emsp;&emsp;/&gt;<br />
+						&lt;/svg&gt;<br />
 					</div>
 				</div>
 			</div>
