@@ -32594,7 +32594,7 @@ class ComponentViewPage02 extends React.Component {
                         React.createElement("li", null, "vue.js"),
                         React.createElement("li", null, "react.js"),
                         React.createElement("li", null, "riot.js"),
-                        React.createElement("li", null, "vanilla.JS"))))));
+                        React.createElement("li", null, "vanilla.js"))))));
     }
 }
 // プロパティ初期値
@@ -32779,12 +32779,12 @@ class ComponentViewPage04 extends React.Component {
                                 React.createElement("td", null, "\u7D0415fps")),
                             React.createElement("tr", null,
                                 React.createElement("td", null,
-                                    React.createElement("a", { href: "./ball_svg.html", target: "_blank" }, "pure js svg")),
+                                    React.createElement("a", { href: "./ball_svg.html", target: "_blank" }, "vanilla.js svg")),
                                 React.createElement("td", null),
                                 React.createElement("td", null, "\u7D0426fps")),
                             React.createElement("tr", null,
                                 React.createElement("td", null,
-                                    React.createElement("a", { href: "./ball_canvas.html", target: "_blank" }, "pure js canvas")),
+                                    React.createElement("a", { href: "./ball_canvas.html", target: "_blank" }, "vanilla.js canvas")),
                                 React.createElement("td", null),
                                 React.createElement("td", null, "\u7D0460fps")))),
                     React.createElement("div", null,

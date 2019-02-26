@@ -94,8 +94,8 @@ export default class ComponentViewPage04 extends React.Component<ComponentViewPa
 							<tr><td><a href="./ball_vue.html" target="_blank">vue.js</a></td><td></td><td>約20fps</td></tr>
 							<tr><td><a href="./ball_react.html" target="_blank">react.js</a></td><td></td><td>約13fps</td></tr>
 							<tr><td><a href="./ball_riot.html" target="_blank">riot.js</a></td><td></td><td>約15fps</td></tr>
-							<tr><td><a href="./ball_svg.html" target="_blank">pure js svg</a></td><td></td><td>約26fps</td></tr>
-							<tr><td><a href="./ball_canvas.html" target="_blank">pure js canvas</a></td><td></td><td>約60fps</td></tr>
+							<tr><td><a href="./ball_svg.html" target="_blank">vanilla.js svg</a></td><td></td><td>約26fps</td></tr>
+							<tr><td><a href="./ball_canvas.html" target="_blank">vanilla.js canvas</a></td><td></td><td>約60fps</td></tr>
 						</tbody></table>
 						<div>
 							フレームワークは基本的にpure jsよりも性能は落ちる。<br />

@@ -66,7 +66,7 @@ export default class ComponentViewPage02 extends React.Component<ComponentViewPa
 							<li>vue.js</li>
 							<li>react.js</li>
 							<li>riot.js</li>
-							<li>vanilla.JS</li>
+							<li>vanilla.js</li>
 						</ul>
 					</div>
 				</div>
